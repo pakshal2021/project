@@ -18,7 +18,7 @@
   </li> -->
   <li class="nav-item">
     <a class="nav-link" href="../php-files/list_admin_user.php">
-      <i class="fas fa-fw fa-table"></i>
+      <i class="fas fa fa-user-circle"></i>
       <span>Admin Users</span></a>
   </li> 
   <li class="nav-item">
@@ -38,7 +38,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../php-files/list_order.php">
-      <i class="fas fa-address-card"></i>
+      <i class="fas fa fa-cart-plus"></i>
       <span>Orders</span></a>
   </li>
   <li class="nav-item">
@@ -55,10 +55,5 @@
     <a class="nav-link" href="../php-files/list_feedback.php">
       <i class="fas fa-comments"></i>
       <span>Feedback</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../php-files/list_reports.php">
-      <i class="fas fas fa-file-alt"></i>
-      <span>Reports</span></a>
   </li>
 </ul>

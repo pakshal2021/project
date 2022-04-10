@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JAAMSO ROYALS</title>
+    <title>Admin Panel</title>
 
     <!-- Bootstrap core CSS-->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

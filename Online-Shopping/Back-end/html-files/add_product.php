@@ -63,29 +63,29 @@
                 <div class="card-body">
                   <form method="post" enctype="multipart/form-data" action="../php-files/save_product.php?product_id=<?php echo $productId?>">
                     <div class="form-group">
-                      <div class="form-label-group">                        
-                       <input type="text" id="productName"  value="<?php echo $_row['product_name']?>" class="form-control" name="product_name" placeholder="product name" required="required" autofocus="autofocus">
-                            <label for="productName">Product Name</label>
+                      <div class="">                        
+                      <label for="productName">Product Name :-</label>
+                       <input type="text" id="productName"  value="" class="form-control" name="product_name" required="required" autofocus="autofocus">
                       </div>
                     </div>
                     <div class="form-group">
-                      <div class="form-label-group">                        
-                        <textarea rows="3" cols="10"  id="product_desc" class="form-control" name="product_desc" required="required"><?php echo $_row['product_desc']?></textarea>
-                        <label for="product_desc">Product Description</label>
+                      <div class="">                        
+                      <label for="product_desc">Product Description :-</label>
+                        <textarea rows="3" cols="10"  id="product_desc" class="form-control" name="product_desc" required="required"></textarea>
                       </div>
                     </div>   
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <div class="form-label-group">
-                            <input type="number" id="productPrice" class="form-control" name="product_price" placeholder="product price" value="<?php echo $_row['product_price']?>" required="required" autofocus="autofocus">
-                            <label for="productPrice">Product Price</label>
+                          <div class="">
+                          <label for="productPrice">Product Price :-</label>
+                            <input type="number" id="productPrice" class="form-control" name="product_price" value="" required="required" autofocus="autofocus">
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <div class="form-label-group">
-                            <input type="number" id="productQnt" class="form-control" name="product_qnt" placeholder="Quantity" value="<?php echo $_row['product_qnt']?>" required="required">
-                            <label for="productQnt">Product Quantity</label>
+                          <div class="">
+                          <label for="productQnt">Product Quantity :-</label>
+                            <input type="number" id="productQnt" class="form-control" name="product_qnt" value="" required="required">
                           </div>
                         </div>
                       </div>
@@ -93,12 +93,9 @@
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <div class="form-label-group">
+                          <div class="">
+                          <label for="productImage">Product Image :-</label>
                            <input type="file" id="productImage" name="product_image" style=" height:23; width:180;" maxlength="100" required="required"/>
-                           <?php if(isset($_row['product_img']) && $_row['product_img']): ?>
-                            <img src="../images/products/<?php echo $_row['product_img']?>"  width="40" height="50">
-                          <?php endif;?>
-                            <label for="productImage">Product Image</label>
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -110,10 +107,11 @@
                                 $subCategorys[] = $row;
                               }
                           ?>
+                          <label for="productImage">Select Sub Category :-</label>
                           <select class="form-control" required="required" name="sub_category_id">
                           <option>Sub Category</option>
                           <?php foreach ($subCategorys as $_category):?>
-                              <option value="<?php echo $_category['sub_category_id']?>" <?php echo ($_category['sub_category_id'] ==  $_row['subcat_id']) ? 'selected="selected"': '';?>><?php echo $_category['sub_category']?></option>
+                              <option value="<?php echo $_category['sub_category_id']?>"><?php echo $_category['sub_category']?></option>
                           <?php endforeach;?>
                         </select>
                         </div>
@@ -136,7 +134,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2019</span>
+              <span>Copyright © Your Website 2022</span>
             </div>
           </div>
         </footer>

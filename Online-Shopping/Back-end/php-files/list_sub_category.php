@@ -50,7 +50,7 @@
           <div class="card mb-3">
             <div class="card-header">
               <a class="btn btn-secondary" href="home.php">Back</a>
-              <a class="btn btn-primary" href="../html-files/add_sub_category.php">Add New</a>
+              <a class="btn btn-success" href="../html-files/add_sub_category.php">Add New</a>
               <i class="fas fa-table"></i>
               Sub Category's
             </div>              
@@ -76,7 +76,7 @@
                       <td><?php echo $_user['sub_category_desc']?></td>
                       <td><?php echo $_user['category']?></td>
                       <td><a class="btn btn-primary" href="../html-files/edit_sub_category.php?sub_category_id=<?php echo $_user['sub_category_id']?>">Edit</a></td>
-                      <td><a class="btn btn-secondary" href="delete_sub_category.php?sub_category_id=<?php echo $_user['sub_category_id']?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a></td>
+                      <td><a class="btn btn-danger" href="delete_sub_category.php?sub_category_id=<?php echo $_user['sub_category_id']?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a></td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
@@ -91,7 +91,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2019</span>
+              <span>Copyright © Your Website 2022</span>
             </div>
           </div>
         </footer>

@@ -69,7 +69,7 @@
                       <td><?php echo $_user['email']?></td>
                       <td><?php echo $_user['subject']?></td>
                       <td><?php echo $_user['comments']?></td>
-                      <td><a class="btn btn-primary" href="delete_contactus.php?id=<?php echo $_user['contect_id']?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a></td>
+                      <td><a class="btn btn-danger" href="delete_contactus.php?id=<?php echo $_user['contect_id']?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a></td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
@@ -84,7 +84,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2019</span>
+              <span>Copyright © Your Website 2022</span>
             </div>
           </div>
         </footer>

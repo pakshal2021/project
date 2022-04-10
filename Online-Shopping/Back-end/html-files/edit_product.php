@@ -53,80 +53,76 @@
           ?>
           <div class="card mb-3">
             <div class="card-header">
-              <a class="btn btn-secondary" href="../php-files/list_admin_user.php">Back</a>
+              <a class="btn btn-secondary" href="../php-files/list_product.php">Back</a>
               <i class="fas fa-table"></i>
-              Admin</div>
+              Product</div>
             <div class="card-body">
               <div class="table-responsive">
                    <div class="container">
               <div class="card card-register mx-auto mt-5">
                 <div class="card-body">
-                  
-                  <form method="post"  action="../php-files/register.php">
-                    <input type="hidden" name="is_admin" value="1">
+                  <form method="post" enctype="multipart/form-data" action="../php-files/save_product.php?product_id=<?php echo $productId?>">
+                    <div class="form-group">
+                      <div class="">                        
+                      <label for="productName">Product Name :-</label>
+                       <input type="text" id="productName"  value="<?php echo $_row['product_name']?>" class="form-control" name="product_name" placeholder="product name" required="required" autofocus="autofocus">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="">                        
+                      <label for="product_desc">Product Description :-</label>
+                        <textarea rows="3" cols="10"  id="product_desc" class="form-control" name="product_desc" required="required"><?php echo $_row['product_desc']?></textarea>
+                      </div>
+                    </div>   
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <div class="form-label-group">
-                            <input type="text" id="firstName" class="form-control" name="first_name" placeholder="First name" required autofocus>
-                            <label for="firstName">First name</label>
+                          <div class="">
+                          <label for="productPrice">Product Price :-</label>
+                            <input type="number" id="productPrice" class="form-control" name="product_price" placeholder="product price" value="<?php echo $_row['product_price']?>" required="required" autofocus="autofocus">
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <div class="form-label-group">
-                            <input type="text" id="lastName" class="form-control" name="last_name" placeholder="Last name" required>
-                            <label for="lastName">Last name</label>
+                          <div class="">
+                          <label for="productQnt">Product Quantity :-</label>
+                            <input type="number" id="productQnt" class="form-control" name="product_qnt" placeholder="Quantity" value="<?php echo $_row['product_qnt']?>" required="required">
                           </div>
                         </div>
                       </div>
                     </div>
-                     <div class="form-group">
-            
-                  <div class="form-label-group">
-                    <input type="text" id="mobile" class="form-control" name="mobile" placeholder="Mobile Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[1-9]{1}[0-9]{9}"/> 
-                    <label for="mobile">Mobile</label>                     
-                  </div>
-                </div>
-              <!--   <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="radio" id="gender" name="gender"  value="male" required> Male<br>
-                    <input type="radio" id="gender" name="gender"  value="female" required> Female<br>
-                  </div>                  
-                </div> -->
-            
-            
-              <div class="form-group">
-              <div class="form-label-group">Gender&nbsp;&nbsp;&nbsp;&nbsp; 
-                <input type="radio" id="gender" name="gender"  value="male" required> Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    <input type="radio" id="gender" name="gender"  value="female" required> Female
-               <!--  <label for="inputEmail">Gender</label> -->
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" name="email"placeholder="Email address" required>
-                <label for="inputEmail">Email address</label>
-              </div>
-            </div>
+                    <div class="form-group">
+                      <div class="form-row">
+                        <div class="col-md-6">
+                          <div class="">
+                          <label for="productImage">Product Image :-</label>
+                          <?php if(isset($_row['product_img']) && $_row['product_img']): ?>
+                            <img src="../images/products/<?php echo $_row['product_img']?>"  width="40" height="50">
+                          <?php endif;?>
+                           <input type="file" id="productImage" name="product_image" style=" height:23; width:180;" maxlength="100" required="required"/>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <?php  
+                              $qrySubCat = $conn->query("SELECT * FROM sub_category");
 
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-                    <label for="inputPassword">Password</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="password" id="confirmPassword" class="form-control" name="confirm_password" placeholder="Confirm password" required>
-                    <label for="confirmPassword">Confirm password</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit" name="save">Register Now</button>
-          </form>     
+                              while ($row = mysqli_fetch_assoc($qrySubCat))
+                              {
+                                $subCategorys[] = $row;
+                              }
+                          ?>
+                          <label for="productImage">Sub Category :-</label>
+                          <select class="form-control" required="required" name="sub_category_id">
+                          <option>Sub Category</option>
+                          <?php foreach ($subCategorys as $_category):?>
+                              <option value="<?php echo $_category['sub_category_id']?>" <?php echo ($_category['sub_category_id'] ==  $_row['subcat_id']) ? 'selected="selected"': '';?>><?php echo $_category['sub_category']?></option>
+                          <?php endforeach;?>
+                        </select>
+                        </div>
+                      </div>
+                    </div>
+                            
+                    <button class="btn btn-primary btn-block" type="submit" name="save">Save</button>
+                  </form>         
                 </div>
               </div>
             </div>

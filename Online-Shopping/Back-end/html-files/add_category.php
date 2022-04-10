@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JAAMSO ROYAL</title>
+    <title>Online Shopping</title>
 
     <!-- Bootstrap core CSS-->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -86,7 +86,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2019</span>
+              <span>Copyright © Your Website 2022</span>
             </div>
           </div>
         </footer>
