@@ -75,17 +75,13 @@ include "../comman/header.php";
 											<td>Cart Sub Total</td>
 											<td>₹<?php echo $grandTotal?></td>
 										</tr>
-										<tr>
-											<td>Exo Tax</td>
-											<td>₹18</td>
-										</tr>
 										<tr class="shipping-cost">
 											<td>Shipping Cost</td>
 											<td>Free</td>										
 										</tr>
 										<tr>
 											<td>Total</td>
-											<td><span>₹<?php echo $grandTotal+18?></span></td>
+											<td><span>₹<?php echo $grandTotal?></span></td>
 										</tr>
 										<tr>
 											<td colspan="1" align="center">

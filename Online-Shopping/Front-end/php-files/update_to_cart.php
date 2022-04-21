@@ -38,7 +38,6 @@
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>
-            alert('Your cart is updated.');
             window.location.href='cart.php';
          </script>";            
     } else {
