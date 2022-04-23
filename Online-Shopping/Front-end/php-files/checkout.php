@@ -17,76 +17,13 @@ include "../comman/header.php";
 								<p>Address</p>
 								<div class="form-one">
 									<form method="post" id="billing_address">
-										<input type="text" placeholder="Billing Name" required="required" name="billing_name">
+										<input type="text" placeholder="Billing Name"  name="billing_name" required>
 										<label for="country" class="sr-only"></label>
-				                        <select class="form-control" id="billing_country" name="billing_country" required="requi">
-										  <option value="country" selected>Country</option>
-										  <option value="Afghanistan">Afghanistan</option>      
-										  <option value="Algeria">Algeria</option>   
-										  <option value="Anguilla">Angola</option>     
-										  <option value="Armenia">Aruba</option>
-										  <option value="Australia">Australia</option>
-										  <option value="Austria">Austria</option>
-										  <option value="Azerbaijan">Azerbaijan</option>      
-										  <option value="Belarus">Belarus</option>
-										  <option value="Belize">Belize</option>    
-										  <option value="Bhutan">Bhutan</option>     
-										  <option value="Botswana">Botswana</option>
-										  <option value="Brazil">Brazil</option>
-										  <option value="Bulgaria">Bulgaria</option>
-										  <option value="Cambodia">Cambodia</option>
-										  <option value="Canada">Canada</option>
-										  <option value="Chile">Chile</option>
-										  <option value="China">China</option>
-										  <option value="Colombia">Colombia</option>
-										  <option value="Dominica">Dominica</option>     
-										  <option value="Eritrea">Eritrea</option>
-										  <option value="Estonia">Estonia</option>
-                                          <option value="India">India</option>     
-										  <option value="Zambia">Zambia</option>
-										  <option value="Zimbabwe">Zimbabwe</option>
-										</select><br/>
-										
-										<input type="text" placeholder="Billing City" name="billing_city" required="required">
-										<input type="text" placeholder="Billing Zip / Postal Code *" name="billing_zipcode" required="required" onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[1-6]{1}[0-6]{6}">
-										<input type="text" placeholder="Billing mobile" name="billing_mobile" required="required" onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[1-9]{1}[0-9]{9}">
+										<textarea placeholder="Billing Address" rows="5" name="billing_address" required></textarea><br><br>
+										<input type="text" placeholder="Billing City" name="billing_city" required>
+										<input type="text" placeholder="Billing Zip / Postal Code *" name="billing_zipcode" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[1-6]{1}[0-6]{6}">
+										<input type="text" placeholder="Billing mobile" name="billing_mobile" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' pattern="[1-9]{1}[0-9]{9}">
 									</form>									
-								</div>
-								<div class="form-two">
-									<form method="post" id="shipping_address">
-										<input type="text" required="required" placeholder="Shipping Name" name="shipping_name">
-										<label for="country" class="sr-only"></label>
-										<select class="form-control" id="shipping_country" name="shipping_country" required="requi">
-										  <option value="country" selected>Country</option>
-										  <option value="Afghanistan">Afghanistan</option>      
-										  <option value="Algeria">Algeria</option>   
-										  <option value="Anguilla">Angola</option>     
-										  <option value="Armenia">Aruba</option>
-										  <option value="Australia">Australia</option>
-										  <option value="Austria">Austria</option>
-										  <option value="Azerbaijan">Azerbaijan</option>      
-										  <option value="Belarus">Belarus</option>
-										  <option value="Belize">Belize</option>    
-										  <option value="Bhutan">Bhutan</option>     
-										  <option value="Botswana">Botswana</option>
-										  <option value="Brazil">Brazil</option>
-										  <option value="Bulgaria">Bulgaria</option>
-										  <option value="Cambodia">Cambodia</option>
-										  <option value="Canada">Canada</option>
-										  <option value="Chile">Chile</option>
-										  <option value="China">China</option>
-										  <option value="Colombia">Colombia</option>
-										  <option value="Dominica">Dominica</option>     
-										  <option value="Eritrea">Eritrea</option>
-										  <option value="Estonia">Estonia</option>     
-										  <option value="Zambia">Zambia</option>
-										  <option value="Zimbabwe">Zimbabwe</option>
-										</select>
-
-										<input type="text" required="required" placeholder="Shipping City" name="shipping_city">
-										<input type="text" required="required" placeholder="Shipping Zip / Postal Code *" name="shipping_zipcode">
-										<input type="text" required="required" placeholder="Shipping mobile" name="shipping_mobile" onchange="return event.charCode >= 48 && event.charCode <= 57' pattern="[1-9]{1}[0-9]{9}">
-									</form>
 								</div>
 							</div>
 					</div>
@@ -167,17 +104,13 @@ include "../comman/header.php";
 														<td>Cart Sub Total</td>
 														<td>₹<?php echo $grandTotal?></td>
 													</tr>
-													<tr>
-														<td>Exo Tax</td>
-														<td>₹18</td>
-													</tr>
 													<tr class="shipping-cost">
 														<td>Shipping Cost</td>
 														<td>Free</td>										
 													</tr>
 													<tr>
 														<td>Total</td>
-														<td><span>₹<?php echo $grandTotal+18?></span></td>
+														<td><span>₹<?php echo $grandTotal?></span></td>
 													</tr>
 													<tr>
 														<td colspan="1" align="center">
@@ -206,7 +139,7 @@ include "../comman/footer.php";
 <script type="text/javascript">
 	function placeOrder(total) {
 		
-		var dataString = $("#billing_address, #shipping_address").serialize();
+		var dataString = $("#billing_address").serialize();
 	    // Do AJAX
 	    $.ajax( {
 	        type: 'POST',

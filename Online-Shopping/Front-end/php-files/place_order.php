@@ -11,37 +11,29 @@
 
   $userId = $currentUserId;
   $total = $_REQUEST['total'];
-  $billingName = $_REQUEST['billing_name'];
-  $shippingName = $_REQUEST['shipping_name']; 
+  $billingName = $_REQUEST['billing_name']; 
   $billingMobile = $_REQUEST['billing_mobile'];
-  $shippingMobile = $_REQUEST['shipping_mobile'];
 
   $userId = $currentUserId;
-  $billinAddress = $_REQUEST['billing_city'].'-'. $_REQUEST['billing_zipcode'].','.$_REQUEST['billing_country'];
-  $shippingAddress = $_REQUEST['shipping_city'].'-'. $_REQUEST['shipping_zipcode'].','.$_REQUEST['shipping_country'];
+  $billinAddress = $_REQUEST['billing_address'].'-'. $_REQUEST['billing_city'].','.$_REQUEST['billing_zipcode'];
   $status = 'processing';
   $billingCity = $_REQUEST['billing_city'];
-  $shippingCity = $_REQUEST['shipping_city'];
 
  $error ='';
 
-    if (!$billingName || !$shippingName) { 
+    if (!$billingName) { 
       $error .= 'Please enter Billig Or Shipping Name.</br>';
     } 
  
-    if (strlen($billingMobile) != 10 OR strlen($shippingMobile) != 10) {
+    if (strlen($billingMobile) != 10 ) {
       $error .= 'Enter a valid phone number.</br>';
     }
- 
-    if (!$_REQUEST['billing_country'] || !$_REQUEST['shipping_country']) {
-      $error .= 'Please select Billing or Shipping Address country.</br>';
-    }
 
-    if (!$_REQUEST['billing_city'] || !$_REQUEST['shipping_city']) {
+    if (!$_REQUEST['billing_city']) {
       $error .= 'Please enter Billing or Shipping Address city.</br>';
     }
 
-    if (!$_REQUEST['billing_zipcode'] || !$_REQUEST['shipping_zipcode']) {
+    if (!$_REQUEST['billing_zipcode']) {
       $error .= 'Please enter Billing or Shipping Address zipcode.</br>';
     }
  
@@ -53,10 +45,10 @@ if ($error) {
 } else {
   $sql = "INSERT INTO
     `order_detail`(    
-      `cart_id`,`user_id`,`billing_address`,`shipping_address`,`billing_name`,`shipping_name`,`status`,
-      `billing_mobile`,`shipping_mobile`,`total`,`billing_city`,`shipping_city`
+      `cart_id`,`user_id`,`billing_address`,`billing_name`,`status`,
+      `billing_mobile`,`total`,`billing_city`
     )
-  VALUES('{$cartId}','{$userId}','{$billinAddress}','{$billinAddress}','{$billingName}','{$shippingName}','{$status}','{$billingMobile}','{$shippingMobile}','{$total}','{$billingCity}','{$shippingCity}')";        
+  VALUES('{$cartId}','{$userId}','{$billinAddress}','{$billingName}','{$status}','{$billingMobile}','{$total}','{$billingCity}')";        
     
       if (mysqli_query($conn, $sql)) {
         $_SESSION['cart_id'] = ''; 

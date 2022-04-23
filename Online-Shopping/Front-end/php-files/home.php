@@ -14,9 +14,26 @@ include "../comman/side.php";
 						<div class="features_items"><!--features_items-->
 							<h2 class="title text-center">Features Items</h2>
 							<?php 
+							$limit = 7;
+							$sqlR = "select * from product_detail";
+							$resultRecors = mysqli_query($conn,$sqlR);
+							$records = $resultRecors->num_rows; 
+							$totalPage = ceil($records/$limit);
+							
+							
+							if(isset($_REQUEST['page']))
+							{
+								$page = $_REQUEST['page'];
+							}
+							else
+							{
+								$page = 1;
+							}
+							$offset = $limit * ($page-1); 
+
 								$subCatId = !empty($_REQUEST['subcat_id']) ? $_REQUEST['subcat_id'] : 0;
 								$productsData = array();  
-		                        $qry = $conn->query("SELECT * FROM product_detail ");
+		                        $qry = $conn->query("SELECT * FROM product_detail limit $limit offset $offset");
 		                        while ($row = mysqli_fetch_assoc($qry))
 		                        {
 		                          $productsData[] = $row;
@@ -61,14 +78,25 @@ include "../comman/side.php";
 								<span style="text-align: center;">Items are not available.</span>
 							<?php endif;?>
 						</div><!--features_items-->
-						<?php if(count($productsData) > 12): ?>
-						<ul class="pagination">
-								<li class="active"><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">&raquo;</a></li>
-							</ul>
-						<?php endif;?>
+						<nav aria-label="...">
+  <ul class="pagination pagination-lg">
+    <li class="page-item disabled">
+
+    	<?php  for($i=1;$i<=$totalPage;$i++)
+    	{
+    		?>
+       <a class="page-link" href="home.php?page=<?php echo $i ?>" tabindex="-1"><?php  echo $i?></a>
+
+  <?php } ?>
+    
+    </li>
+
+    <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+  </ul>
+   <br>
+    <br>
+</nav>
 				    </div>
 			</div>
 		</div>

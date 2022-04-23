@@ -2,11 +2,11 @@
 include "../comman/header.php";
 //include "../comman/side.php";
 ?>	
-	<section id="advertisement">
+	<!-- <section id="advertisement">
 		<div class="container">
 			<img src="../assets/images/shop/advertisement.jpg" alt="" />
 		</div>
-	</section>
+	</section> -->
 	<section>
 		<div class="container">
 			<div class="row">

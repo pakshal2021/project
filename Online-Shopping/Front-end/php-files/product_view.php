@@ -2,11 +2,11 @@
 include "../comman/header.php";
 //include "../comman/side.php";
 ?>	
-	<section id="advertisement">
+	<!-- <section id="advertisement">
 		<div class="container">
 			<img src="../assets/images/shop/advertisement.jpg" alt="" />
 		</div>
-	</section>
+	</section> -->
 	<section>
 		<div class="container">
 			<div class="row">
@@ -30,14 +30,14 @@ include "../comman/header.php";
 							<div class="single-blog-post">
 
 
-								<h3><a class="btn btn-secondary" href="../php-files/product_list.php?subcat_id=<?php echo $currnetItem['subcat_id']?>"><h4>Back</h4></a>&nbsp;|&nbsp;&nbsp;&nbsp;<?php echo $currnetItem['product_name']?></h3>							
+								<h2><a class="btn btn-secondary" href="../php-files/product_list.php?subcat_id=<?php echo $currnetItem['subcat_id']?>"><h2>Back</h2></a>&nbsp;|&nbsp;&nbsp;&nbsp;<?php echo $currnetItem['product_name']?></h2>							
 								
 								<a href="">
-									<img src="../../Back-end/images/products/<?php echo $currnetItem['product_img'] ?>" alt="" width="400pxl" height="450pxl">
+									<img src="../../Back-end/images/products/<?php echo $currnetItem['product_img'] ?>" alt="" height="400px">
 								</a>
-								<p><?php echo $currnetItem['product_desc']?></p>
+								<h1><?php echo $currnetItem['product_desc']?></h1>
 
-								<a href="add_to_cart.php?product_id=<?php echo $currnetItem['product_id'] ?>&price=<?php echo $currnetItem['product_price']?>"><i class="fa fa-plus-square"></i> Add to cart</a>
+								<h1><a href="add_to_cart.php?product_id=<?php echo $currnetItem['product_id'] ?>&price=<?php echo $currnetItem['product_price']?>"><i class="fa fa-plus-square"></i> Add to cart</a><h1>
 							</div>
 							<!-- <div class="single-blog-post">
 								<h3>Girls Pink T Shirt arrived in store</h3>
